@@ -77,7 +77,12 @@ function resetGame() {
 
 function guessNumber(){
   do{
-    var luckyGuess =  Math.floor(Math.random() * 100) + 1;
+    var luckyGuess =   Math.floor(Math.random()*(maxGuess-minGuess+1)+minGuess); //Math.floor(Math.random() * maxGuess) + minGuess;
+    if(luckyGuess === maxGuess){
+      luckyGuess--;
+    }else if(luckyGuess === minGuess){
+      luckyGuess++;
+    }
   }while(luckyGuess <= minGuess || luckyGuess >= maxGuess);
 
   guessField.value = luckyGuess;
